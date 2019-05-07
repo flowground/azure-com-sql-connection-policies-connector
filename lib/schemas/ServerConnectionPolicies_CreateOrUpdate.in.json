@@ -1,0 +1,96 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serverName": {
+            "required": true,
+            "type": "string"
+        },
+        "connectionPolicyName": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "default"
+            ]
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "description": "ARM resource.",
+                            "properties": {
+                                "id": {
+                                    "description": "Resource ID.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "Resource name.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "Resource type.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                        }
+                    ],
+                    "description": "ARM proxy resource.",
+                    "properties": {},
+                    "type": "object"
+                }
+            ],
+            "description": "A server secure connection policy.",
+            "properties": {
+                "kind": {
+                    "description": "Metadata used for the Azure portal experience.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "location": {
+                    "description": "Resource location.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "The properties of the server secure connection policy.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "connectionType": {
+                            "description": "The server connection type.",
+                            "enum": [
+                                "Default",
+                                "Proxy",
+                                "Redirect"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "name": "ServerConnectionType"
+                            }
+                        }
+                    },
+                    "required": [
+                        "connectionType"
+                    ]
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

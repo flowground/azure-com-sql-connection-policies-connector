@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "serverName": {
+            "required": true,
+            "type": "string"
+        },
+        "connectionPolicyName": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "default"
+            ]
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
